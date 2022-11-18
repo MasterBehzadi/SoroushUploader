@@ -17,5 +17,5 @@
         <input type="submit" value="آپلود فایل" class="main submit">
         </form>
 <!-- Cloud Action : https://cloud.midline.ir/gjtV2SC7oKiPoNuxfCnkTS9Pw66qwccOTFnXRkQowxbT8gPbUry_B9-9HEXYAg4rTLBlun5fE9HbOMghRmMpq6q2LKdXeE2PXEjrM912V8DwkY6EOQBq5hu7e0YQH0_M4muAvVwMESuxSKI8/uploadFile -->
-        </body>
-        </html>
+</body>
+</html>
