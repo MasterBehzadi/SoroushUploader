@@ -1,5 +1,34 @@
+<?php
+// $xml=simplexml_load_file($XmlContent) or die("Error: Cannot create object");
+$BotToken = "gjtV2SC7oKiPoNuxfCnkTS9Pw66qwccOTFnXRkQowxbT8gPbUry_B9-9HEXYAg4rTLBlun5fE9HbOMghRmMpq6q2LKdXeE2PXEjrM912V8DwkY6EOQBq5hu7e0YQH0_M4muAvVwMESuxSKI8";
 
+$web_page_to_send = "https://cloud.midline.ir/gjtV2SC7oKiPoNuxfCnkTS9Pw66qwccOTFnXRkQowxbT8gPbUry_B9-9HEXYAg4rTLBlun5fE9HbOMghRmMpq6q2LKdXeE2PXEjrM912V8DwkY6EOQBq5hu7e0YQH0_M4muAvVwMESuxSKI8/uploadFile";
 
+$theFile = $_FILES['file'];
+// $_SERVER['DOCUMENT_ROOT']."/images/test.jpg"
+
+echo $file_name_with_full_path;
+echo "\r\n";
+
+$post_request = array(
+    // "sender" => "TheAmplituhedron", 
+	"file" => curl_file_create($theFile) // for php 5.5+
+);
+echo $post_request;
+$ch = curl_init();
+echo $ch;
+echo "\r\n";
+curl_setopt($ch, CURLOPT_URL, $web_page_to_send);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post_request);
+$result = curl_exec($ch);
+curl_close($ch);
+echo $result;
+echo "\r\n";
+$xml=simplexml_load_string($result) or die("Error: Cannot create object");
+echo "\r\n";
+print_r($xml);
+?>
 
 <html lang="en">
 <head>
@@ -9,31 +38,13 @@
     <script>
     function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "POST", theUrl, false ); // false for synchronous request
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
     return xmlHttp.responseText;
     }
-
-<?php
-$XmlContent = $_POST['a']
-
-$xml=simplexml_load_file($XmlContent) or die("Error: Cannot create object");
-
-?>
-        </script>
-        <script>
-            var s = "<?php echo $dddd ?>"; 
-            console.log('rrrrrrrr');
-        </script>
-    <title>Document</title>
+    </script>
 </head>
 <body>
-<form action="" method="post">
-<input type="text" name="a" id="a" value="https://oo.co/this.xml">
-<input type="submit" value="Go">
-
-<a href="https://cloud.midline.ir/gjtV2SC7oKiPoNuxfCnkTS9Pw66qwccOTFnXRkQowxbT8gPbUry_B9-9HEXYAg4rTLBlun5fE9HbOMghRmMpq6q2LKdXeE2PXEjrM912V8DwkY6EOQBq5hu7e0YQH0_M4muAvVwMESuxSKI8/downloadFile/<?php echo $xml->FileUrl; ?>"><p>https://cloud.midline.ir/gjtV2SC7oKiPoNuxfCnkTS9Pw66qwccOTFnXRkQowxbT8gPbUry_B9-9HEXYAg4rTLBlun5fE9HbOMghRmMpq6q2LKdXeE2PXEjrM912V8DwkY6EOQBq5hu7e0YQH0_M4muAvVwMESuxSKI8/downloadFile/<?php echo $xml->FileUrl; ?></p></a>
-</form>
+    <p><?php echo $result ?></p>
+    <a href="https://cloud.midline.ir/<?php echo $BotToken ?>/downloadFile/<?php echo $Token ?>"><p>https://cloud.midline.ir/<?php echo $BotToken ?>/downloadFile/<?php echo $Token ?></p></a>
 </body>
-</html>
-
