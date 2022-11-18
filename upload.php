@@ -7,12 +7,9 @@ $web_page_to_send = "https://cloud.midline.ir/gjtV2SC7oKiPoNuxfCnkTS9Pw66qwccOTF
 $theFile = $_FILES['file'];
 // $_SERVER['DOCUMENT_ROOT']."/images/test.jpg"
 
-echo $file_name_with_full_path;
-echo "\r\n";
-
 $post_request = array(
     // "sender" => "TheAmplituhedron", 
-	"file" => curl_file_create($theFile) // for php 5.5+
+	"file" => curl_file_create($_FILES['file']) // for php 5.5+
 );
 $ch = curl_init();
 echo $ch;
