@@ -1,6 +1,10 @@
+body {
+    background-color: #090809;
+}
 .main {
     text-align: center;
+    color: #50ffb1;
 }
 .main .submit {
-
+    border-radius: 15px;
 }
